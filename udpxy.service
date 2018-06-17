@@ -1,0 +1,18 @@
+#
+# /etc/systemd/system/udpxy.service
+#
+[Unit]
+Description=udpxy
+Wants=basic.target
+After=basic.target network.target
+
+[Service]
+ExecStart=/root/udpxy-1.0.23-12/udpxy -p 4022 -T -s -n -20
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=18s
+User=root
+
+[Install]
+WantedBy=multi-user.target
