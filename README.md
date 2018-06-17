@@ -150,7 +150,7 @@ Now we have a proxy running on LAN to provide a UDP-to-HTTP bridge
 
 ### LG TV
 
-LG WebOS seems to support native IPTV. But there is ***SS IPTV*** available on the LG content store.
+LG WebOS seems not to support native IPTV. But there is ***SS IPTV*** available on the LG content store.
 
 1. Install SS IPTV from the LG Content store
 
