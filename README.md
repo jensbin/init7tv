@@ -18,6 +18,13 @@ This guide show how I implement it.
 * Raspberry PI 1 is not that powerful and can only serve one client at the same time
 * Haven't figured out how to get the LG TV to autostart SS IPTV
 
+**The cool stuff:**
+
+* Zapping on TV is working properly
+* No dependency to Cablecom
+* No delayed TV signal
+* Lot's of HD channels
+
 
 
 ## Design
@@ -52,7 +59,7 @@ This guide show how I implement it.
                                 |   LG TV   |       |    Android   |     |  Laptop  |
                                 |  SS IPTV  |       |  IPTV / VLC  |     |    VLC   |
                                 +-----------+       +--------------+     +----------+
-
+  WLAN
 ==================================================================================================
 ```
 
