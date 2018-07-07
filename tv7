@@ -29,7 +29,7 @@ if [ -z ${CHANNEL+x} ]; then
 else
   numberresults=$(cat $TMPFILE | grep -i "$CHANNEL" | wc -l)
   if [ $numberresults -eq 1 ]; then
-    thematch=$(cat $TMPFILE | grep -i "$CHANNEL" | sed "s/[!@#$%^&*()-]/\\\&/g")
+    thematch=$(cat $TMPFILE | grep -i "$CHANNEL" | sed "s/[!+@#$%^&*()-]/\\\&/g")
   elif [ $numberresults -gt 1 ]; then
     echo "Multiple matches"
     echo "================"
@@ -37,6 +37,7 @@ else
   else
     echo "No match"
     echo "========"
+    cat $TMPFILE
   fi
 fi
 
