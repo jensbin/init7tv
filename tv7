@@ -6,6 +6,8 @@ PROXY="http://192.168.178.11:4022"
 PLAYLIST="https://api.init7.net/tvchannels.xspf"
 PLFILE="/tmp/tvchannels.xspf"
 TMPFILE="/tmp/$$_list.tmp"
+CHANNEL="$*"
+
 
 if [ -f $PLFILE ]; then
   currentdate=$(date +%s)
@@ -22,16 +24,16 @@ fi
 
 cat $PLFILE | awk '/<trackList>/{y=1;next}y' | grep "<title>" | awk '{gsub(/<[^>]*>/,"")};1' | awk '{$1=$1}1' > $TMPFILE
 
-if [ -z ${1+x} ]; then
+if [ -z ${CHANNEL+x} ]; then
   cat $TMPFILE
 else
-  numberresults=$(cat $TMPFILE | grep -i "$1" | wc -l)
+  numberresults=$(cat $TMPFILE | grep -i "$CHANNEL" | wc -l)
   if [ $numberresults -eq 1 ]; then
-    thematch=$(cat $TMPFILE | grep -i "$1")
+    thematch=$(cat $TMPFILE | grep -i "$CHANNEL")
   elif [ $numberresults -gt 1 ]; then
     echo "Multiple matches"
     echo "================"
-    cat $TMPFILE | grep -i "$1"
+    cat $TMPFILE | grep -i "$CHANNEL"
   else
     echo "No match"
     echo "========"
