@@ -67,7 +67,7 @@ This guide show how I implement it.
 
 ## Preparation
 
-### Mikrotik hex S
+### Mikrotik hEX S
 
 We need to do two things on the router:
 
@@ -111,7 +111,7 @@ Assumption:
 
 
 
-With this configuration it is already possible for wired connected LAN devices to read the multicast IPTV traffic. 
+With this configuration it is already possible for wired connected LAN devices to read the multicast IPTV traffic.
 
 ### Raspberry Pi - udpxy
 
@@ -183,5 +183,23 @@ Android configuration is similar to the LG. The App I use here is [IPTV](https:/
 
 Configure Proxy and Playlist like on LG TV and enjoy TV.
 
+### VLC
 
+To watch the TV stream on Linux I use VLC and the following script
 
+```
+$ ./tv7 srf
+Multiple matches
+================
+SRF1 HD
+SRFzwei HD
+SRF Info HD
+
+$ ./tv7 srf1
+Playing: SRF1 HD
+VLC media player 2.2.8 Weatherwax (revision 2.2.7-14-g3cc1d8cba9)
+[0000000002485428] core libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+$
+```
+
+Find the ``tv7`` script in this repo: [tv7](tv7).
